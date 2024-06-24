@@ -22,3 +22,12 @@ You can install the required libraries using pip. Simply run:
 
 ```bash
 pip install opencv-python numpy scipy mediapipe
+```
+
+## Running the Script
+
+To run the blink detection script, ensure you have a webcam connected to your computer. Then execute the script with:
+
+```bash
+python blink.py
+```
