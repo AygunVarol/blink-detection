@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 from scipy.spatial import distance
 import mediapipe as mp
+import sqlite3
+from datetime import datetime
 
 def eye_aspect_ratio(eye):
     A = distance.euclidean(eye[1], eye[5])
@@ -17,6 +19,18 @@ EYE_AR_CONSEC_FRAMES = 3
 # Initialize Mediapipe face mesh
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp_face_mesh.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence=0.5)
+
+# Set up SQLite database
+conn = sqlite3.connect('user1.db')
+cursor = conn.cursor()
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS BlinkLog (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp TEXT,
+    blink_count INTEGER
+)
+''')
+conn.commit()
 
 # Start video capture
 cap = cv2.VideoCapture(0)
@@ -56,6 +70,9 @@ while cap.isOpened():
             else:
                 if frame_counter >= EYE_AR_CONSEC_FRAMES:
                     blink_counter += 1
+                    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                    cursor.execute('INSERT INTO BlinkLog (timestamp, blink_count) VALUES (?, ?)', (timestamp, blink_counter))
+                    conn.commit()
                     print("Blink")  # Print blink detected
                 frame_counter = 0
 
@@ -70,3 +87,4 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+conn.close()
