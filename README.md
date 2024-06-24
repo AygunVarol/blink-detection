@@ -73,8 +73,3 @@ python blink_detection.py
    - Indicate the project is licensed under the MIT License.
 
 This `Readme.md` should guide users on how to set up and use your blink detection project effectively.
-
-
-
-
-    Clone the repository:
