@@ -2,6 +2,7 @@
 This repository detects blinks and counts them in the upper left of the video frame.
 
 This is a example of a frame
+
 ![resim](https://github.com/AygunVarol/Blink/assets/55206464/1a4f5c0c-5cd5-4191-bbff-ee361387485b)
 
 This project uses OpenCV and MediaPipe to detect blinks by calculating the Eye Aspect Ratio (EAR). Detected blinks are logged with timestamps into a SQLite database.
@@ -53,5 +54,3 @@ python blink_detection.py
 ### License:
 
    - This project is licensed under the MIT License.
-
-This `Readme.md` should guide users on how to set up and use your blink detection project effectively.
