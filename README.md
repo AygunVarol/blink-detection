@@ -50,26 +50,8 @@ pip install opencv-python numpy scipy mediapipe
 python blink_detection.py
 ```
 
+### License:
 
-
-### Explanation:
-
-1. **Requirements**:
-   - List the libraries needed and provide installation commands.
-
-2. **Installation**:
-   - Provide the `pip` command to install the required libraries.
-
-3. **Running the Script**:
-   - Instructions to run the script and ensure the user has a webcam connected.
-
-4. **Usage**:
-   - Steps to clone the repository, install dependencies, and run the script.
-
-5. **Code**:
-   - Include the full Python script with comments explaining each section.
-
-6. **License**:
-   - Indicate the project is licensed under the MIT License.
+   - This project is licensed under the MIT License.
 
 This `Readme.md` should guide users on how to set up and use your blink detection project effectively.
